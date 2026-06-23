@@ -1,0 +1,8 @@
+/* Regloo — typographie. Polices Google Fonts (gratuites, licence OFL). */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap');
+
+:root {
+  --regloo-font-display: 'Bricolage Grotesque', sans-serif; /* Logo, titres — poids 600 */
+  --regloo-font-body:    'Hanken Grotesk', sans-serif;      /* Texte courant, interface — 400/500/600 */
+  --regloo-font-mono:    'Spline Sans Mono', monospace;     /* Étiquettes, code, données — 400/500 */
+}

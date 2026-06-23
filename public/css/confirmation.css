@@ -1,36 +1,22 @@
-/* confirmation.css — post-checkout confirmation page. */
+/* confirmation.css — post-checkout page. Regloo brand. */
 
 body { min-height: 100vh; display: flex; flex-direction: column; }
 
-.confirmation-wrapper { flex: 1; display: flex; align-items: center; justify-content: center; padding: 6rem 2rem 4rem; }
-.confirmation-card {
-  max-width: 520px; width: 100%; text-align: center;
-  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg);
-  padding: 3.5rem 3rem; box-shadow: var(--shadow-md);
-}
-.confirmation-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: rgba(61,122,79,0.1);
-  display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
-}
-.confirmation-icon svg { color: var(--green); }
-.confirmation-card h1 { font-size: 2rem; color: var(--navy); margin-bottom: 0.75rem; font-weight: 700; }
-.confirmation-card h1 em { font-style: italic; color: var(--gold); }
-.confirmation-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
-.plan-recap { background: var(--ivory); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
-.plan-recap-row { display: flex; justify-content: space-between; align-items: center; padding: 0.4rem 0; }
-.plan-recap-label { font-size: 0.78rem; color: var(--subtle); }
-.plan-recap-value { font-size: 0.85rem; color: var(--navy); font-weight: 600; }
+.confirmation-wrapper { flex: 1; display: flex; align-items: center; justify-content: center; padding: 7rem 2rem 4rem; }
+.confirmation-card { max-width: 540px; width: 100%; text-align: center; background: var(--sable); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 3.5rem 3rem; box-shadow: var(--shadow-md); }
+.confirmation-icon { width: 68px; height: 68px; border-radius: 50%; background: var(--terracotta-soft); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; }
+.confirmation-icon svg { color: var(--terracotta); }
+.confirmation-card h1 { font-size: 2.1rem; color: var(--ink); margin-bottom: 0.75rem; font-weight: 700; letter-spacing: -0.03em; }
+.confirmation-card h1 em { font-style: normal; color: var(--terracotta); }
+.confirmation-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+.plan-recap { background: var(--creme); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+.plan-recap-row { display: flex; justify-content: space-between; align-items: center; padding: 0.42rem 0; }
+.plan-recap-label { font-size: 0.8rem; color: var(--muted); }
+.plan-recap-value { font-size: 0.88rem; color: var(--ink); font-weight: 600; }
 .confirmation-actions { display: flex; flex-direction: column; gap: 0.75rem; }
-.btn-dashboard {
-  font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.85rem; font-weight: 600;
-  color: var(--white); background: var(--navy);
-  padding: 0.8rem 1.5rem; border-radius: var(--radius); border: none; cursor: pointer;
-  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  transition: background var(--transition);
-}
-.btn-dashboard:hover { background: var(--navy-mid); }
-.btn-back { font-size: 0.78rem; color: var(--subtle); transition: color var(--transition); }
-.btn-back:hover { color: var(--navy); }
+.btn-dashboard { font-family: var(--font-body); font-size: 0.88rem; font-weight: 600; color: var(--creme); background: var(--terracotta); padding: 0.85rem 1.5rem; border-radius: var(--radius-sm); border: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background var(--transition); }
+.btn-dashboard:hover { background: var(--terracotta-deep); }
+.btn-back { font-size: 0.82rem; color: var(--muted); transition: color var(--transition); }
+.btn-back:hover { color: var(--ink); }
 
 @media (max-width: 640px) { .confirmation-card { padding: 2.5rem 1.5rem; } }

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Regloo">
+  <rect width="64" height="64" rx="14" fill="#F4EEE5"></rect>
+  <g transform="translate(7,1.6) scale(0.9)">
+    <path d="M6 45 A22 22 0 0 1 50 45 Z" fill="#211C18"></path>
+    <path d="M21 45 A7.5 9 0 0 1 35 45 Z" fill="#C3683E"></path>
+  </g>
+</svg>

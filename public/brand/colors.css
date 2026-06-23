@@ -1,0 +1,9 @@
+/* Regloo — couleurs de marque (CSS custom properties) */
+:root {
+  --regloo-ink:        #211C18; /* Encre — texte, symbole */
+  --regloo-terracotta: #C3683E; /* Accent unique — porte, états actifs */
+  --regloo-sable:      #EBE2D5; /* Surfaces, cartes */
+  --regloo-creme:      #F4EEE5; /* Fond principal */
+  --regloo-text-muted: #6E6155; /* Texte secondaire */
+  --regloo-border:     rgba(33, 28, 24, 0.10); /* Filets, séparateurs */
+}

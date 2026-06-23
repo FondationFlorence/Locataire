@@ -16,6 +16,20 @@ All brand-specific strings live in **`lib/site.js`** (`SITE` object: name,
 domain, url, email, tagline, description). Views read them as `<%= site.name %>`
 etc. To rebrand, edit that one file. Do not hardcode the brand name in views.
 
+### Visual identity (Regloo brand kit)
+The brand kit ships under `public/` (`brand/`, `logos/`, `favicons/`).
+- **Palette** (warm, earthy — defined as tokens in `shared.css`): encre
+  `#211C18` (text, dark sections), terracotta `#C3683E` (the *single* accent —
+  links, primary buttons, the logo door; do not multiply), sable `#EBE2D5`
+  (cards/surfaces), crème `#F4EEE5` (page background), muted `#6E6155`.
+- **Type**: Bricolage Grotesque (display/headings, 600–700), Hanken Grotesk
+  (body), Spline Sans Mono (eyebrows, labels, data). Loaded via Google Fonts in
+  `head.ejs`.
+- **Logo**: a dome (igloo) with a terracotta door. Inlined as SVG in `nav.ejs`
+  / `footer.ejs`; source files in `public/logos/` (`regloo-icon.svg`,
+  `regloo-lockup.svg`, inverse variants for dark backgrounds, `favicon.svg`).
+  The wordmark is **Regloo** (capital R).
+
 ## Directory map
 - `server.js` — Express entry: routes, static serving, 404
 - `lib/site.js` — brand config + `pageContext()` render-locals helper

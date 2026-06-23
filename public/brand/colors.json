@@ -1,0 +1,7 @@
+{
+  "ink":        { "hex": "#211C18", "rgb": "33, 28, 24",   "role": "Encre — texte, symbole" },
+  "terracotta": { "hex": "#C3683E", "rgb": "195, 104, 62",  "role": "Accent unique" },
+  "sable":      { "hex": "#EBE2D5", "rgb": "235, 226, 213", "role": "Surfaces" },
+  "creme":      { "hex": "#F4EEE5", "rgb": "244, 238, 229", "role": "Fond principal" },
+  "textMuted":  { "hex": "#6E6155", "rgb": "110, 97, 85",   "role": "Texte secondaire" }
+}

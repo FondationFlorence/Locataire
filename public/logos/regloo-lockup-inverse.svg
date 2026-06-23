@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 224 64" width="224" height="64" fill="none" role="img" aria-label="Regloo">
+  <g transform="translate(2,9) scale(0.8)">
+    <path d="M6 45 A22 22 0 0 1 50 45 Z" fill="#F4EEE5"></path>
+    <path d="M21 45 A7.5 9 0 0 1 35 45 Z" fill="#C3683E"></path>
+  </g>
+  <text x="60" y="45" font-family="&#39;Bricolage Grotesque&#39;, sans-serif" font-size="44" font-weight="600" letter-spacing="-1.5" fill="#F4EEE5">Regloo</text>
+</svg>
