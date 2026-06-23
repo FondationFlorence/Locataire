@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/app-header', { navActive: 'admin' }) %>
+
+  <main class="app-main">
+    <div class="app-pagehead">
+      <div>
+        <h1>Admin · Données</h1>
+        <p>Vos indicateurs business et l'état du portefeuille global.</p>
+      </div>
+      <a href="/app" class="btn btn-outline">Tableau de bord</a>
+    </div>
+
+    <div class="app-section-title">Acquisition</div>
+    <div class="kpis">
+      <div class="kpi"><div class="kpi-val"><%= metrics.users.total %></div><div class="kpi-label">Comptes</div></div>
+      <div class="kpi"><div class="kpi-val"><%= metrics.users.last7 %></div><div class="kpi-label">Inscrits (7 j)</div></div>
+      <div class="kpi"><div class="kpi-val"><%= metrics.users.last30 %></div><div class="kpi-label">Inscrits (30 j)</div></div>
+      <div class="kpi"><div class="kpi-val"><%= metrics.properties.total %></div><div class="kpi-label">Biens suivis</div></div>
+    </div>
+
+    <div class="app-section-title">Revenus &amp; abonnements</div>
+    <div class="kpis">
+      <div class="kpi ok"><div class="kpi-val"><%= metrics.subs.active %></div><div class="kpi-label">Abonnements actifs</div></div>
+      <div class="kpi"><div class="kpi-val"><%= metrics.subs.mrr %> €</div><div class="kpi-label">MRR (mensuel)</div></div>
+      <div class="kpi"><div class="kpi-val"><%= metrics.subs.arr %> €</div><div class="kpi-label">ARR (annualisé)</div></div>
+      <div class="kpi attention"><div class="kpi-val"><%= metrics.subs.pending %></div><div class="kpi-label">Paiements en attente</div></div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="panel">
+        <h3>Abonnements par plan</h3>
+        <dl>
+          <div class="info-row"><dt>Starter — 89 €</dt><dd><%= metrics.subs.byPlan.starter %></dd></div>
+          <div class="info-row"><dt>Professionnel — 149 €</dt><dd><%= metrics.subs.byPlan.professionnel %></dd></div>
+          <div class="info-row"><dt>Premium — 249 €</dt><dd><%= metrics.subs.byPlan.premium %></dd></div>
+          <div class="info-row"><dt>Annulés</dt><dd><%= metrics.subs.canceled %></dd></div>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Conformité du parc</h3>
+        <dl>
+          <div class="info-row"><dt><span class="badge ok">Conforme</span></dt><dd><%= metrics.dist.ok %></dd></div>
+          <div class="info-row"><dt><span class="badge attention">À surveiller</span></dt><dd><%= metrics.dist.attention %></dd></div>
+          <div class="info-row"><dt><span class="badge critique">Action requise</span></dt><dd><%= metrics.dist.critique %></dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <div class="panel">
+        <h3>Biens par commune</h3>
+        <dl>
+          <% if (metrics.byCommune.length === 0) { %><div class="info-row"><dt>Aucun bien</dt><dd>—</dd></div><% } %>
+          <% metrics.byCommune.forEach(function (c) { %>
+            <div class="info-row"><dt><%= c[0] %></dt><dd><%= c[1] %></dd></div>
+          <% }); %>
+        </dl>
+      </div>
+      <div class="panel">
+        <h3>Inscriptions récentes</h3>
+        <dl>
+          <% if (metrics.recent.length === 0) { %><div class="info-row"><dt>Aucun compte</dt><dd>—</dd></div><% } %>
+          <% metrics.recent.forEach(function (u) { %>
+            <div class="info-row"><dt><%= u.email %></dt><dd><%= (u.createdAt || '').slice(0, 10) %><%= u.subscription && u.subscription.status === 'active' ? ' · ' + (PLAN_LABEL[u.subscription.plan] || 'actif') : '' %></dd></div>
+          <% }); %>
+        </dl>
+      </div>
+    </div>
+
+    <div class="app-note">
+      <span class="app-note-ico" aria-hidden="true">ⓘ</span>
+      <div>Ces chiffres viennent de votre base (`lib/store.js`). Pour le <strong>trafic visiteurs</strong> (pages vues, sources), activez l'analytics via la variable <strong>PLAUSIBLE_DOMAIN</strong>. Pour les <strong>performances techniques</strong> (temps de réponse, uptime), voir le tableau de bord Render.</div>
+    </div>
+  </main>
+</body>
+</html>

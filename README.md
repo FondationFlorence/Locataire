@@ -72,6 +72,8 @@ public/{brand,logos,favicons}/  kit de marque
 | `SESSION_SECRET` | Secret de session (à fixer en prod) | aléatoire au boot |
 | `DATA_DIR` | Dossier du store JSON | `./data` |
 | `STRIPE_WEBHOOK_SECRET` | Vérifie le webhook Stripe (sinon `/webhooks/stripe` → 503) | — |
+| `ADMIN_EMAILS` | E-mails (séparés par virgule) ayant accès à `/admin` | — |
+| `PLAUSIBLE_DOMAIN` | Active la mesure d'audience Plausible (sinon aucune analytics) | — |
 
 La marque (nom, domaine, email) vit dans **`lib/site.js`**. Les liens Stripe
 sont dans `routes/tarifs.js`. Pour ajouter une commune, complétez `COMMUNES`
@@ -93,8 +95,13 @@ dans `lib/communes.js`.
   démarrage ; pour monter en charge, migrer `lib/store.js` vers Postgres (à
   valider sur une vraie instance avant mise en production).
 
-## Déploiement (Render)
+## Déploiement & suivi
+
+Guide pas à pas (mise en ligne, domaine, Stripe, données) : **[`DEPLOIEMENT.md`](DEPLOIEMENT.md)**.
 
 `render.yaml` définit un service web Node (`npm install` / `npm start`, health
-check `/health`). Ajoutez un disque persistant monté sur `DATA_DIR` et la
-variable `SESSION_SECRET`.
+check `/health`) avec un disque persistant sur `DATA_DIR`.
+
+Où voir les données : **`/admin`** (business — comptes, abonnements, MRR,
+conformité ; réservé à `ADMIN_EMAILS`) · **Plausible** (visiteurs, via
+`PLAUSIBLE_DOMAIN`) · **Stripe** (revenus) · **Render** (performances, logs).

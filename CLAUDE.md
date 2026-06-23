@@ -44,11 +44,21 @@ The brand kit ships under `public/` (`brand/`, `logos/`, `favicons/`).
 - `routes/legal.js` — `/mentions-legales`, `/confidentialite`, `/cgv`
 - `routes/app.js` — accounts (`/inscription`, `/connexion`, `/deconnexion`) +
   dashboard (`/app`) and property CRUD (`/app/biens/*`)
+- `routes/webhook.js` — `POST /webhooks/stripe` (raw body, signature verified)
+- `routes/admin.js` — `/admin` metrics (gated by `ADMIN_EMAILS`)
 - `views/partials/` — `head.ejs`, `nav.ejs`, `footer.ejs`, `app-header.ejs`
 - `views/layout.ejs` — landing page (marketing)
 - `views/tarifs.ejs` / `confirmation.ejs` / `legal.ejs` / `404.ejs`
 - `views/app/` — `dashboard.ejs`, `property-form.ejs`, `property-detail.ejs`,
-  `login.ejs`, `signup.ejs`
+  `login.ejs`, `signup.ejs`, `admin.ejs`
+
+## Metrics & analytics
+- **Business metrics** live at `/admin` (`routes/admin.js`) — accounts,
+  subscriptions by plan, MRR/ARR, portfolio compliance, communes, recent
+  signups. Computed from the store; gated by `ADMIN_EMAILS`. `attachUser` sets
+  `res.locals.isAdmin` so `app-header.ejs` shows the Admin link.
+- **Web analytics**: optional Plausible snippet injected by `head.ejs` only when
+  `PLAUSIBLE_DOMAIN` is set (off by default — no tracking otherwise).
 - `public/css/` — `shared.css` (tokens, reset, nav, footer) + one sheet per page
   (`landing`, `tarifs`, `confirmation`, `legal`, `app`)
 - `public/js/app.js` — mobile menu, scroll reveal/stagger, count-up, FAQ

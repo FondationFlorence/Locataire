@@ -57,6 +57,9 @@ app.use('/', require('./routes/legal'));
 // Product core — accounts + compliance dashboard
 app.use('/', require('./routes/app'));
 
+// Admin metrics dashboard (gated by ADMIN_EMAILS)
+app.use('/', require('./routes/admin'));
+
 // 404
 app.use((req, res) => {
   res.status(404).render('404', pageContext({
