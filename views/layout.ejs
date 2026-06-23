@@ -16,15 +16,15 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-value">60+</div>
+          <div class="hero-stat-value" data-count="60" data-suffix="+">60+</div>
           <div class="hero-stat-label">lots gérés en moyenne</div>
         </div>
         <div>
-          <div class="hero-stat-value">20 k&euro;</div>
+          <div class="hero-stat-value" data-count="20" data-suffix=" k&euro;">20 k&euro;</div>
           <div class="hero-stat-label">amende maximum par infraction</div>
         </div>
         <div>
-          <div class="hero-stat-value">6</div>
+          <div class="hero-stat-value" data-count="6">6</div>
           <div class="hero-stat-label">communes couvertes en live</div>
         </div>
       </div>
@@ -72,7 +72,7 @@
   </section>
 
   <!-- TRUST BAR -->
-  <div class="trust-bar">
+  <div class="trust-bar" data-stagger>
     <div class="trust-item">
       <div class="trust-icon">DL</div>
       Téléservice Declaloc intégré
@@ -97,7 +97,7 @@
     <h2 class="section-title">L'outil conçu pour les<br>professionnels de la location.</h2>
     <p class="section-desc">Pas un tableur amélioré. Pas un agenda détourné. Un moteur de règles, commune par commune, couplé à un tableau de bord multi-propriétés.</p>
 
-    <div class="features-grid" data-reveal>
+    <div class="features-grid" data-stagger>
       <div class="feature-card">
         <div class="feature-icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
@@ -155,7 +155,7 @@
     <h2 class="section-title">Chaque bien. Chaque règle.<br>Une seule vue.</h2>
     <p class="section-desc">Plus besoin de jongler entre les sites communaux, les fichiers Excel et les rappels manuels. L'état de votre portefeuille, mis à jour en continu.</p>
 
-    <div class="dashboard-preview" data-reveal>
+    <div class="dashboard-preview" data-stagger>
       <div class="prop-table">
         <div class="prop-table-head">
           <span class="prop-table-title">Portefeuille &mdash; Conciergerie</span>
@@ -252,7 +252,7 @@
     <h2 class="section-title">Les règles évoluent.<br>Nous vous informons en premier.</h2>
     <p class="section-desc">Les communes modifient leurs délibérations en permanence. <%= site.name %> surveille chaque modification pertinente et vous alerte avant qu'elle ne devienne un problème.</p>
 
-    <div class="alerts-grid" data-reveal>
+    <div class="alerts-grid" data-stagger>
       <div class="alert-card critical">
         <div class="alert-card-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
@@ -286,7 +286,7 @@
     <h2 class="section-title">Ils gèrent leurs lots.<br>Nous gérons leur conformité.</h2>
     <p class="section-desc">Des conciergeries et multi-propriétaires qui ont compris que la conformité n'est pas un coût, c'est une assurance.</p>
 
-    <div class="testimonials-grid" data-reveal>
+    <div class="testimonials-grid" data-stagger>
       <div class="testimonial-card">
         <div class="testimonial-quote">Avant <%= site.name %>, je passais 2h par semaine à vérifier manuellement les jours sur chaque plateforme. Maintenant, je reçois une alerte si un seuil est proche. Temps récupéré : considérable.</div>
         <div class="testimonial-author">
@@ -326,7 +326,7 @@
     <h2 class="section-title">De la première déclaration<br>à la conformité continue.</h2>
     <p class="section-desc">Le numéro Declaloc n'est que le début. Chaque étape du cycle de vie de l'enregistrement a ses délais, ses obligations et ses risques. Nous les suivons tous.</p>
 
-    <div class="reg-grid" data-reveal>
+    <div class="reg-grid" data-stagger>
       <div class="reg-steps">
         <div class="reg-step">
           <div class="step-num">1</div>
@@ -389,7 +389,7 @@
     <h2 class="section-title">Six villes en premier.<br>D'autres chaque trimestre.</h2>
     <p class="section-desc">Nous commençons là où le marché professionnel est le plus dense : Paris, Nice, Bordeaux, Marseille, Pays Basque, Lyon. Chaque commune dispose d'un moteur de règles live. L'expansion est prévue trimestriellement.</p>
 
-    <div class="communes-grid" data-reveal>
+    <div class="communes-grid" data-stagger>
       <div class="commune-chip chip-paris">
         <div class="commune-chip-name">Paris</div>
         <div class="commune-chip-rule">90j &mdash; CU requis</div>
@@ -424,7 +424,7 @@
   </section>
 
   <!-- CTA -->
-  <section class="cta-section" id="contact">
+  <section class="cta-section" id="contact" data-stagger>
     <h2 class="cta-title">Protégez votre portefeuille.<br>À partir de&nbsp;<span>&euro;89/mois</span>.</h2>
     <p class="cta-desc">Pas d'engagement longue durée. Annulez quand vous voulez. Un tableau de bord qui vous évite &euro;20&nbsp;000 d'amende — c'est le calcul qui compte.</p>
     <a href="/tarifs" class="cta-btn">Voir les tarifs &rarr;</a>

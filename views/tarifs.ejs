@@ -91,25 +91,37 @@
   <section class="faq-section">
     <h2 class="faq-title">Questions fréquentes</h2>
 
-    <div class="faq-item">
+    <div class="faq-item open">
       <div class="faq-q">Puis-je changer de plan à tout moment ?</div>
-      <div class="faq-a">Oui. Vous pouvez upgrader ou downgrader votre plan à tout moment. Le changement prend effet au prochain cycle de facturation. Aucune pénalité.</div>
+      <div class="faq-a">Oui, en toute liberté. Vous pouvez passer à un plan supérieur ou inférieur quand vous le souhaitez : le changement prend effet au prochain cycle de facturation, sans frais ni pénalité. Si votre portefeuille s'agrandit en cours de mois, vous n'êtes jamais bloqué — vous ajustez votre plan en quelques clics et ne payez que ce dont vous avez besoin.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Qu'est-ce qu'un « lot » ?</div>
-      <div class="faq-a">Un lot correspond à un bien immobilier unique déclaré sur les plateformes de location courte durée (Airbnb, Booking, Abritel, etc.). Un appartement = un lot.</div>
+      <div class="faq-q">Qu'est-ce qu'un « lot » exactement ?</div>
+      <div class="faq-a">Un lot, c'est un bien immobilier unique proposé à la location courte durée : un appartement, une maison, un studio. Peu importe le nombre de plateformes sur lesquelles il est annoncé (Airbnb, Booking, Abritel…), un même logement ne compte que pour un seul lot. Vous choisissez donc votre plan selon le nombre total de logements que vous gérez, pas selon le nombre d'annonces.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Y a-t-il un engagement ?</div>
-      <div class="faq-a">Non. L'abonnement est mensuel et sans engagement. Vous pouvez annuler à tout moment depuis votre espace. Le service reste actif jusqu'à la fin de la période payée.</div>
+      <div class="faq-q">Que se passe-t-il si je dépasse le nombre de lots de mon plan ?</div>
+      <div class="faq-a">Aucune coupure brutale, jamais. Dès que vous approchez de la limite de votre plan, nous vous prévenons et vous proposons de passer au palier supérieur. Vos données, votre historique et votre suivi de conformité restent intacts pendant toute la transition.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Y a-t-il un engagement de durée ?</div>
+      <div class="faq-a">Non. L'abonnement est mensuel et sans engagement. Vous résiliez quand vous le voulez, directement depuis votre espace : le service reste actif jusqu'à la fin de la période déjà réglée, sans reconduction forcée ni frais cachés.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Proposez-vous la facturation annuelle ?</div>
-      <div class="faq-a">Oui, sur demande : l'engagement annuel vous fait économiser l'équivalent de deux mois. Écrivez-nous à <%= site.email %> pour l'activer.</div>
+      <div class="faq-a">Oui, sur demande. L'engagement annuel vous fait économiser l'équivalent de deux mois par rapport au paiement mensuel. Écrivez-nous à <a href="mailto:<%= site.email %>"><%= site.email %></a> et nous activons la facturation annuelle sur votre compte.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q">Le paiement est-il sécurisé ?</div>
-      <div class="faq-a">Oui. Nous utilisons Stripe pour le traitement des paiements. Vos données bancaires ne passent jamais par nos serveurs. Stripe est certifié PCI DSS niveau 1.</div>
+      <div class="faq-q"><%= site.name %> remplace-t-il un avocat ou un expert-comptable ?</div>
+      <div class="faq-a">Non, et ce n'est pas son objectif. <%= site.name %> est un outil d'aide à la conformité : il centralise les règles de chaque commune, surveille vos plafonds de jours et vos échéances (DPE, Declaloc, délibérations) et vous alerte <em>avant</em> qu'un problème ne survienne. Pour un conseil juridique ou fiscal personnalisé, il constitue un excellent complément au travail de vos conseils — pas un substitut.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Mes données et mes paiements sont-ils protégés ?</div>
+      <div class="faq-a">Oui. Vos données sont hébergées dans l'Union européenne et traitées conformément au RGPD ; nous ne les revendons jamais. Les paiements sont gérés par Stripe, certifié PCI DSS niveau 1 : vos coordonnées bancaires ne transitent jamais par nos serveurs.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Comment se passe la mise en route ?</div>
+      <div class="faq-a">En quelques minutes. Vous choisissez votre plan, vous ajoutez vos biens (commune, type de bien, plateformes) et <%= site.name %> applique immédiatement les règles de chaque commune à votre portefeuille. Les plans Premium et sur mesure incluent un onboarding dédié pour importer un grand portefeuille sans effort.</div>
     </div>
   </section>
 

@@ -102,7 +102,8 @@
 .features-grid { margin-top: 3.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .feature-card { background: var(--sable); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; transition: box-shadow var(--transition), transform var(--transition); }
 .feature-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
-.feature-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--creme); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--terracotta); }
+.feature-icon { width: 44px; height: 44px; border-radius: var(--radius-sm); background: var(--creme); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; color: var(--terracotta); transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition); }
+.feature-card:hover .feature-icon { background: var(--terracotta); color: var(--creme); border-color: var(--terracotta); transform: translateY(-2px); }
 .feature-title { font-family: var(--font-display); font-size: 1.2rem; color: var(--ink); margin-bottom: 0.6rem; font-weight: 600; }
 .feature-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
 .feature-tag { display: inline-block; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--terracotta); }
@@ -235,4 +236,15 @@
   .communes-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-actions { flex-direction: column; align-items: stretch; gap: 0.85rem; }
   .cta-section { padding: 3.5rem 1.5rem; }
+}
+
+/* ── HERO ENTRANCE (on load) ── */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-eyebrow { animation: rgFadeUp 0.65s ease both; }
+  .hero h1 { animation: rgFadeUp 0.65s ease 0.08s both; }
+  .hero-desc { animation: rgFadeUp 0.65s ease 0.16s both; }
+  .hero-actions { animation: rgFadeUp 0.65s ease 0.24s both; }
+  .hero-stats { animation: rgFadeUp 0.65s ease 0.32s both; }
+  .hero-card { animation: rgFadeUp 0.85s ease 0.35s both; }
+  .hero-right::after { animation: rgGlow 7s ease-in-out infinite; }
 }
