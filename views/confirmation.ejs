@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+
+  <div class="confirmation-wrapper">
+    <div class="confirmation-card">
+      <div class="confirmation-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1>Merci pour votre <em>confiance</em>.</h1>
+      <p class="confirmation-desc">Votre abonnement est en cours d'activation. Vous recevrez un email de confirmation avec vos identifiants d'accès dans les prochaines minutes.</p>
+
+      <div class="plan-recap">
+        <div class="plan-recap-row">
+          <span class="plan-recap-label">Plan</span>
+          <span class="plan-recap-value"><%= planName %></span>
+        </div>
+        <div class="plan-recap-row">
+          <span class="plan-recap-label">Nombre de lots</span>
+          <span class="plan-recap-value"><%= planLots %></span>
+        </div>
+        <div class="plan-recap-row">
+          <span class="plan-recap-label">Tarif</span>
+          <span class="plan-recap-value"><%= planPrice %></span>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <a href="/" class="btn-dashboard">Retour à l'accueil &rarr;</a>
+        <a href="/tarifs" class="btn-back">Voir les tarifs</a>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

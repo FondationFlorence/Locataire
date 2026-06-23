@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+
+  <!-- HERO -->
+  <section class="pricing-hero">
+    <p class="pricing-eyebrow">Tarification</p>
+    <h1>Un prix <em>juste</em>,<br>aligné sur votre portefeuille.</h1>
+    <p class="pricing-hero-desc">Payez selon le nombre de lots que vous gérez. Pas de frais cachés. Pas d'engagement longue durée. Annulez quand vous voulez.</p>
+    <p class="pricing-note"><strong>−2 mois</strong>&nbsp;sur l'engagement annuel — sur demande.</p>
+  </section>
+
+  <!-- PRICING CARDS -->
+  <div class="pricing-grid">
+    <!-- STARTER -->
+    <div class="pricing-card">
+      <div class="card-plan-name">Starter</div>
+      <div class="card-plan-lots">1 à 20 lots</div>
+      <div class="card-price">
+        <span class="card-price-currency">€</span>
+        <span class="card-price-amount">89</span>
+        <span class="card-price-period">/mois</span>
+      </div>
+      <div class="card-price-sub">Facturation mensuelle, sans engagement</div>
+      <div class="card-divider"></div>
+      <ul class="card-features">
+        <li>Moteur de règles par commune</li>
+        <li>Suivi journalier des jours</li>
+        <li>Alertes personnalisées</li>
+        <li>Tableau de bord multi-biens</li>
+        <li>Suivi Declaloc</li>
+      </ul>
+      <a href="<%= starterLink %>" class="card-btn card-btn-outline">Choisir Starter</a>
+    </div>
+
+    <!-- PROFESSIONNEL -->
+    <div class="pricing-card featured">
+      <div class="card-plan-name">Professionnel</div>
+      <div class="card-plan-lots">21 à 50 lots</div>
+      <div class="card-price">
+        <span class="card-price-currency">€</span>
+        <span class="card-price-amount">149</span>
+        <span class="card-price-period">/mois</span>
+      </div>
+      <div class="card-price-sub">Facturation mensuelle, sans engagement</div>
+      <div class="card-divider"></div>
+      <ul class="card-features">
+        <li>Tout le plan Starter</li>
+        <li>Veille réglementaire avancée</li>
+        <li>Export CSV &amp; PDF</li>
+        <li>Multi-utilisateurs (3 accès)</li>
+        <li>Support prioritaire par email</li>
+      </ul>
+      <a href="<%= proLink %>" class="card-btn card-btn-primary">Choisir Professionnel</a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="pricing-card">
+      <div class="card-plan-name">Premium</div>
+      <div class="card-plan-lots">51 à 100 lots</div>
+      <div class="card-price">
+        <span class="card-price-currency">€</span>
+        <span class="card-price-amount">249</span>
+        <span class="card-price-period">/mois</span>
+      </div>
+      <div class="card-price-sub">Facturation mensuelle, sans engagement</div>
+      <div class="card-divider"></div>
+      <ul class="card-features">
+        <li>Tout le plan Professionnel</li>
+        <li>Multi-utilisateurs illimités</li>
+        <li>API d'intégration</li>
+        <li>Onboarding dédié</li>
+        <li>Support prioritaire téléphonique</li>
+      </ul>
+      <a href="<%= premiumLink %>" class="card-btn card-btn-outline">Choisir Premium</a>
+    </div>
+  </div>
+
+  <!-- ENTERPRISE -->
+  <div class="enterprise-band">
+    <div class="enterprise-left">
+      <h3>Sur mesure — 100+ lots</h3>
+      <p>Vous gérez un portefeuille de plus de 100 lots ? Nous adaptons l'outil à vos besoins : intégrations spécifiques, SLA, formation équipe, déploiement sur mesure.</p>
+    </div>
+    <a href="mailto:<%= site.email %>?subject=Plan%20sur%20mesure%20—%20100%2B%20lots" class="enterprise-btn">Nous contacter</a>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="faq-title">Questions fréquentes</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Puis-je changer de plan à tout moment ?</div>
+      <div class="faq-a">Oui. Vous pouvez upgrader ou downgrader votre plan à tout moment. Le changement prend effet au prochain cycle de facturation. Aucune pénalité.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Qu'est-ce qu'un « lot » ?</div>
+      <div class="faq-a">Un lot correspond à un bien immobilier unique déclaré sur les plateformes de location courte durée (Airbnb, Booking, Abritel, etc.). Un appartement = un lot.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Y a-t-il un engagement ?</div>
+      <div class="faq-a">Non. L'abonnement est mensuel et sans engagement. Vous pouvez annuler à tout moment depuis votre espace. Le service reste actif jusqu'à la fin de la période payée.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Proposez-vous la facturation annuelle ?</div>
+      <div class="faq-a">Oui, sur demande : l'engagement annuel vous fait économiser l'équivalent de deux mois. Écrivez-nous à <%= site.email %> pour l'activer.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Le paiement est-il sécurisé ?</div>
+      <div class="faq-a">Oui. Nous utilisons Stripe pour le traitement des paiements. Vos données bancaires ne passent jamais par nos serveurs. Stripe est certifié PCI DSS niveau 1.</div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/nav') %>
+
+  <main class="legal-wrap">
+    <p class="legal-eyebrow">Informations légales</p>
+    <h1><%= doc.title %></h1>
+    <p class="legal-intro"><%= doc.intro %></p>
+
+    <% doc.sections.forEach(function(section) { %>
+      <section class="legal-section">
+        <h2><%= section.h %></h2>
+        <% section.p.forEach(function(paragraph) { %>
+          <p><%= paragraph %></p>
+        <% }); %>
+      </section>
+    <% }); %>
+
+    <p class="legal-updated">Dernière mise à jour : <%= year %>. Pour toute question : <a href="mailto:<%= site.email %>"><%= site.email %></a>.</p>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

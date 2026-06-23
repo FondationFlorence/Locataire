@@ -1,0 +1,17 @@
+{
+  "name": "regloo",
+  "version": "1.0.0",
+  "description": "regloo — conformité des meublés de tourisme en France. Site marketing + tarifs (Express + EJS).",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.18.2"
+  }
+}
