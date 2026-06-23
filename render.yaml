@@ -18,6 +18,14 @@ services:
       # Set in the Render dashboard after creating the Stripe webhook endpoint.
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      # Comma-separated e-mails allowed on /admin.
+      - key: ADMIN_EMAILS
+        sync: false
+      # Umami analytics (optional — see umami/README.md). Both required to enable.
+      - key: UMAMI_WEBSITE_ID
+        sync: false
+      - key: UMAMI_SRC
+        sync: false
     disk:
       name: regloo-data
       mountPath: /var/data

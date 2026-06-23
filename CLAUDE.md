@@ -57,8 +57,9 @@ The brand kit ships under `public/` (`brand/`, `logos/`, `favicons/`).
   subscriptions by plan, MRR/ARR, portfolio compliance, communes, recent
   signups. Computed from the store; gated by `ADMIN_EMAILS`. `attachUser` sets
   `res.locals.isAdmin` so `app-header.ejs` shows the Admin link.
-- **Web analytics**: optional Plausible snippet injected by `head.ejs` only when
-  `PLAUSIBLE_DOMAIN` is set (off by default — no tracking otherwise).
+- **Web analytics**: self-hosted Umami. `head.ejs` injects the tracking script
+  only when both `UMAMI_WEBSITE_ID` and `UMAMI_SRC` are set (off by default — no
+  tracking otherwise). Deploy recipes in `umami/` (docker-compose + Render).
 - `public/css/` — `shared.css` (tokens, reset, nav, footer) + one sheet per page
   (`landing`, `tarifs`, `confirmation`, `legal`, `app`)
 - `public/js/app.js` — mobile menu, scroll reveal/stagger, count-up, FAQ

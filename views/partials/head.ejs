@@ -29,8 +29,8 @@
 
   <link rel="stylesheet" href="/css/shared.css">
   <% if (pageCss) { %><link rel="stylesheet" href="/css/<%= pageCss %>"><% } %>
-  <% if (typeof analytics !== 'undefined' && analytics && analytics.plausibleDomain) { %>
-  <script defer data-domain="<%= analytics.plausibleDomain %>" src="https://plausible.io/js/script.js"></script>
+  <% if (typeof analytics !== 'undefined' && analytics && analytics.umami && analytics.umami.websiteId && analytics.umami.src) { %>
+  <script defer data-website-id="<%= analytics.umami.websiteId %>" src="<%= analytics.umami.src %>"></script>
   <% } %>
   <script src="/js/app.js" defer></script>
 </head>

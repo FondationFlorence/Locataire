@@ -1,0 +1,43 @@
+# Umami — auto-hébergement par Docker (pour un VPS / une machine avec Docker).
+#
+#   1. Changez APP_SECRET (chaîne aléatoire longue) et POSTGRES_PASSWORD.
+#   2. docker compose up -d
+#   3. Ouvrez http://VOTRE_IP:3001  (login par défaut : admin / umami → changez-le)
+#   4. Add website → domaine "regloo.fr" → copiez le Website ID + l'URL du script
+#   5. Sur Regloo (Render → Environment), réglez :
+#         UMAMI_WEBSITE_ID = <l'ID copié>
+#         UMAMI_SRC        = https://VOTRE_DOMAINE_UMAMI/script.js
+#
+# Mettez Umami derrière HTTPS (reverse proxy / Caddy / Nginx) avant la prod.
+
+services:
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    ports:
+      - "3001:3000"          # 3001 sur l'hôte pour ne pas heurter Regloo (3000)
+    environment:
+      DATABASE_URL: postgresql://umami:CHANGE_ME_DB_PASSWORD@db:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: CHANGE_ME_LONG_RANDOM_STRING
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: CHANGE_ME_DB_PASSWORD
+    volumes:
+      - umami-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U umami"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  umami-db-data:

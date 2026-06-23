@@ -27,7 +27,7 @@ Render → votre service **regloo** → onglet **Environment**. Vérifiez / ajou
 | `DATA_DIR` | `/var/data` | Dossier des données (sur le disque) |
 | `ADMIN_EMAILS` | **votre e-mail** (ex. `noeweil@gmail.com`) | Donne accès à la page **/admin** |
 | `STRIPE_WEBHOOK_SECRET` | *(voir étape 4)* | Active les paiements |
-| `PLAUSIBLE_DOMAIN` | `regloo.fr` *(optionnel)* | Active la mesure d'audience |
+| `UMAMI_WEBSITE_ID` + `UMAMI_SRC` | *(voir `umami/README.md`)* | Activent la mesure d'audience |
 
 Après modification, Render redéploie automatiquement.
 
@@ -57,7 +57,7 @@ Après modification, Render redéploie automatiquement.
 | Vous voulez voir… | Où | Comment |
 | --- | --- | --- |
 | **Comptes, abonnements, MRR, conformité du parc** | **votre site `/admin`** | Connectez-vous avec un e-mail listé dans `ADMIN_EMAILS`, puis ouvrez `https://regloo.fr/admin` (un lien « Admin » apparaît dans l'app). |
-| **Visiteurs, pages vues, sources** | **Plausible** | Créez un compte sur `plausible.io`, ajoutez le site `regloo.fr`, puis mettez `PLAUSIBLE_DOMAIN=regloo.fr` sur Render. (Sans cookies, conforme RGPD, sans bandeau.) Alternative gratuite auto-hébergeable : *Umami*. |
+| **Visiteurs, pages vues, sources** | **Umami** (auto-hébergé) | Déployez Umami (Docker ou Render) puis réglez `UMAMI_WEBSITE_ID` + `UMAMI_SRC`. Mode d'emploi complet : **[`umami/README.md`](umami/README.md)**. Sans cookies, conforme RGPD, sans bandeau. |
 | **Revenus, paiements, churn, factures** | **Stripe** | Le tableau de bord Stripe fournit MRR, encaissements et relances nativement. |
 | **Performances techniques (temps de réponse, CPU, mémoire, uptime, logs)** | **Render** | Service **regloo** → onglets **Metrics**, **Logs**, **Events**. |
 

@@ -1,0 +1,37 @@
+# Umami sur Render — blueprint SÉPARÉ de Regloo.
+# À déployer depuis un dépôt/dossier contenant CE fichier (New + → Blueprint).
+#
+# Après déploiement :
+#   1. Ouvrez l'URL du service umami → login admin / umami → changez le mot de passe.
+#   2. Add website → "regloo.fr" → copiez le Website ID.
+#   3. Sur le service Regloo (Environment), réglez :
+#         UMAMI_WEBSITE_ID = <l'ID>
+#         UMAMI_SRC        = https://<url-umami-onrender>/script.js
+#
+# Note : la base Postgres "free" de Render expire après 90 jours — passez sur une
+# base payante pour une utilisation durable. Le service image peut requérir un
+# plan payant.
+
+databases:
+  - name: umami-db
+    databaseName: umami
+    user: umami
+    plan: free
+
+services:
+  - type: web
+    name: umami
+    runtime: image
+    image:
+      url: ghcr.io/umami-software/umami:postgresql-latest
+    plan: starter
+    healthCheckPath: /api/heartbeat
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: umami-db
+          property: connectionString
+      - key: DATABASE_TYPE
+        value: postgresql
+      - key: APP_SECRET
+        generateValue: true
