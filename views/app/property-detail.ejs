@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/app-header') %>
+
+  <%
+    var communeLabel = property.communeLabel || evaluation.rules.label;
+    var typeLabel = property.type === 'secondaire' ? 'Résidence secondaire' : 'Résidence principale';
+    var platformLabels = { airbnb: 'Airbnb', booking: 'Booking', abritel: 'Abritel' };
+    var platforms = (property.platforms || []).map(function (p) { return platformLabels[p] || p; });
+    var days = evaluation.days;
+  %>
+
+  <main class="app-main">
+    <a href="/app" class="app-back">← Tableau de bord</a>
+
+    <div class="detail-head">
+      <div>
+        <h1><%= property.name %></h1>
+        <div class="detail-sub"><%= communeLabel %> · <%= typeLabel %><%= property.address ? ' · ' + property.address : '' %></div>
+      </div>
+      <div class="detail-actions">
+        <span class="badge <%= evaluation.status %>"><%= STATUS_LABEL[evaluation.status] %></span>
+        <a href="/app/biens/<%= property.id %>/modifier" class="btn btn-outline">Modifier</a>
+      </div>
+    </div>
+
+    <div class="detail-grid">
+      <div>
+        <% if (days) { var pct = Math.min(100, Math.round(days.ratio * 100)); %>
+          <div class="panel">
+            <h3>Compteur de jours</h3>
+            <div class="gauge-top">
+              <div class="gauge-num"><%= days.rented %> <small>/ <%= days.cap %> jours</small></div>
+              <div class="gauge-remaining"><%= days.remaining >= 0 ? days.remaining + ' jours restants' : Math.abs(days.remaining) + ' jours au-dessus du plafond' %></div>
+            </div>
+            <div class="gauge-bar <%= days.status %>"><span style="width: <%= pct %>%"></span></div>
+          </div>
+        <% } %>
+
+        <div class="panel">
+          <h3>Conformité</h3>
+          <% evaluation.checks.forEach(function (c) { %>
+            <div class="check">
+              <div class="check-ico <%= c.status %>"><%= c.status === 'ok' ? '✓' : (c.status === 'attention' ? '!' : '✕') %></div>
+              <div class="check-body">
+                <div class="check-label"><%= c.label %></div>
+                <div class="check-detail"><%= c.detail %></div>
+                <% if (c.action) { %><div class="check-action">→ <%= c.action %></div><% } %>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <div>
+        <div class="panel">
+          <h3>Informations</h3>
+          <dl>
+            <div class="info-row"><dt>Commune</dt><dd><%= communeLabel %></dd></div>
+            <div class="info-row"><dt>Type</dt><dd><%= typeLabel %></dd></div>
+            <div class="info-row"><dt>N° d'enregistrement</dt><dd><%= property.registrationNumber || '—' %></dd></div>
+            <div class="info-row"><dt>Plateformes</dt><dd><%= platforms.length ? platforms.join(', ') : '—' %></dd></div>
+            <div class="info-row"><dt>DPE</dt><dd><%= property.dpeClass ? ('Classe ' + property.dpeClass + (property.dpeDate ? ' · ' + property.dpeDate : '')) : '—' %></dd></div>
+            <% if (property.type === 'principale') { %><div class="info-row"><dt>Jours loués</dt><dd><%= property.daysRented || 0 %></dd></div><% } %>
+          </dl>
+        </div>
+
+        <div class="panel">
+          <h3>Règles — <%= communeLabel %></h3>
+          <div class="commune-note"><%= evaluation.rules.note %></div>
+        </div>
+
+        <form method="post" action="/app/biens/<%= property.id %>/supprimer" onsubmit="return confirm('Supprimer définitivement ce bien ?');">
+          <button class="btn btn-danger" type="submit">Supprimer ce bien</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

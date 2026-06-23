@@ -1,0 +1,16 @@
+<header class="app-header">
+  <a href="/app" class="app-brand" aria-label="Regloo — tableau de bord">
+    <span class="nav-mark" aria-hidden="true">
+      <svg viewBox="0 0 56 56" fill="none"><path d="M6 45 A22 22 0 0 1 50 45 Z" fill="#211C18"/><path d="M21 45 A7.5 9 0 0 1 35 45 Z" fill="#C3683E"/></svg>
+    </span>
+    <span class="app-brand-name"><%= site.name %></span>
+  </a>
+  <nav class="app-nav">
+    <a href="/app" class="app-nav-link<%= (typeof navActive !== 'undefined' && navActive === 'dashboard') ? ' is-active' : '' %>">Tableau de bord</a>
+    <a href="/app/biens/nouveau" class="app-nav-link">Ajouter un bien</a>
+  </nav>
+  <div class="app-user">
+    <span class="app-user-email"><%= currentUser.email %></span>
+    <form method="post" action="/deconnexion"><button type="submit" class="app-logout">Déconnexion</button></form>
+  </div>
+</header>

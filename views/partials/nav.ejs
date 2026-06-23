@@ -14,8 +14,13 @@
 
   <div class="nav-links" id="navLinks">
     <a href="/#fonctionnalites" class="nav-link">Fonctionnalités</a>
-    <a href="/#communes" class="nav-link">Communes</a>
+    <a href="/#etapes" class="nav-link">Comment ça marche</a>
     <a href="/tarifs" class="nav-link<%= navActive === 'tarifs' ? ' is-active' : '' %>">Tarifs</a>
-    <a href="/tarifs" class="nav-cta">Démarrer</a>
+    <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+      <a href="/app" class="nav-cta">Tableau de bord</a>
+    <% } else { %>
+      <a href="/connexion" class="nav-link">Connexion</a>
+      <a href="/inscription" class="nav-cta">Créer un compte</a>
+    <% } %>
   </div>
 </nav>

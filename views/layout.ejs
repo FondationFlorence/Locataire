@@ -7,427 +7,226 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">Conformité · Meublés de tourisme · France</p>
-      <h1>Ne manquez plus<br>aucune <em>règle</em>,<br>aucun délai.</h1>
-      <p class="hero-desc">Chaque commune de France superpose ses propres règles : plafonds 90/120 jours, Declaloc, DPE, délibérations en cours. <%= site.name %> suit tout, automatiquement, sur l'ensemble de votre portefeuille.</p>
+      <p class="hero-eyebrow">Orchestrateur de conformité · Meublés de tourisme</p>
+      <h1>La conformité courte durée,<br><em>enfin orchestrée</em>.</h1>
+      <p class="hero-desc"><%= site.name %> centralise déclarations en mairie, numéros d'enregistrement, plafond 90/120 jours et taxe de séjour — pour tout votre portefeuille de meublés de tourisme, sur toutes les plateformes.</p>
       <div class="hero-actions">
-        <a href="/tarifs" class="btn-primary">Voir les tarifs &rarr;</a>
-        <a href="#fonctionnalites" class="btn-ghost">Voir les fonctionnalités</a>
+        <a href="/inscription" class="btn-primary">Créer un compte gratuit &rarr;</a>
+        <a href="/tarifs" class="btn-ghost">Voir les tarifs</a>
       </div>
+      <p class="hero-trial">14 jours d'essai · sans carte bancaire</p>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-value" data-count="60" data-suffix="+">60+</div>
-          <div class="hero-stat-label">lots gérés en moyenne</div>
+          <div class="hero-stat-value" data-count="90">90</div>
+          <div class="hero-stat-label">à 120 jours, le plafond résidence principale</div>
         </div>
         <div>
-          <div class="hero-stat-value" data-count="20" data-suffix=" k&euro;">20 k&euro;</div>
-          <div class="hero-stat-label">amende maximum par infraction</div>
+          <div class="hero-stat-value" data-count="15" data-prefix="" data-suffix=" k&euro;">15 k&euro;</div>
+          <div class="hero-stat-label">d'amende encourue par infraction</div>
         </div>
         <div>
           <div class="hero-stat-value" data-count="6">6</div>
-          <div class="hero-stat-label">communes couvertes en live</div>
+          <div class="hero-stat-label">communes modélisées, d'autres chaque trimestre</div>
         </div>
       </div>
     </div>
+
     <div class="hero-right">
       <div class="hero-card">
-        <div class="hero-card-label">DéclaLoc &mdash; Registre National</div>
-        <div class="hero-card-num">FR-2026-01147-MARS-3E</div>
-        <div class="hero-card-row">
-          <span class="hero-card-row-label">Commune</span>
-          <span class="hero-card-row-val">Marseille, 13006</span>
-        </div>
-        <div class="hero-card-row">
-          <span class="hero-card-row-label">Résidence principale</span>
-          <span class="hero-card-row-val">12 rue de la République</span>
-        </div>
-        <div class="hero-card-row">
-          <span class="hero-card-row-label">Jours loués (2026)</span>
-          <span class="hero-card-row-val">67 / 120</span>
-        </div>
-        <div class="hero-card-row">
-          <span class="hero-card-row-label">DPE</span>
-          <span class="hero-card-row-val">C &mdash; Valide</span>
-        </div>
-        <div class="hero-card-status">
-          <span class="status-ok">&#10003; Conforme</span>
-          <span class="status-days">53 jours restants avant plafond</span>
-        </div>
-        <div class="fines-pill">
-          <div class="fine-chip">
-            <span class="fine-chip-amt">&euro;10k</span>
-            <span class="fine-chip-lbl">Non-enregist.</span>
+        <div class="mock-top">
+          <div>
+            <div class="mock-title">Conformité du portefeuille</div>
+            <div class="mock-meta">42 lots · mis à jour il y a 4 min</div>
           </div>
-          <div class="fine-chip">
-            <span class="fine-chip-amt">&euro;20k</span>
-            <span class="fine-chip-lbl">Fausse décl.</span>
+          <span class="mock-pill">app.regloo.fr</span>
+        </div>
+        <div class="mock-rows">
+          <div class="mock-row">
+            <div>
+              <div class="mock-row-name">Appartement Bellecour</div>
+              <div class="mock-row-sub">Lyon · 64 / 90 jours</div>
+            </div>
+            <span class="mock-badge ok">Conforme</span>
           </div>
-          <div class="fine-chip">
-            <span class="fine-chip-amt">&euro;15k</span>
-            <span class="fine-chip-lbl">Quota excédé</span>
+          <div class="mock-row">
+            <div>
+              <div class="mock-row-name">Studio Croix-Rousse</div>
+              <div class="mock-row-sub">Lyon · 118 / 90 jours</div>
+            </div>
+            <span class="mock-badge crit">Dépassement</span>
           </div>
+          <div class="mock-row">
+            <div>
+              <div class="mock-row-name">Loft Confluence</div>
+              <div class="mock-row-sub">Lyon · n° d'enregistrement manquant</div>
+            </div>
+            <span class="mock-badge crit">Action requise</span>
+          </div>
+        </div>
+        <div class="mock-foot">
+          <span><span class="mock-dot crit"></span> 3 alertes prioritaires</span>
+          <span>39 biens conformes</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar" data-stagger>
-    <div class="trust-item">
-      <div class="trust-icon">DL</div>
-      Téléservice Declaloc intégré
+  <!-- PROBLEM -->
+  <section class="problem">
+    <p class="problem-lead">Chaque commune ses règles. Chaque lot ses échéances.<br>Une erreur, et c'est jusqu'à <strong>15 000 €</strong> d'amende.</p>
+    <div class="problem-stats" data-stagger>
+      <div class="problem-stat">
+        <div class="problem-num">90 / 120 j</div>
+        <p>de location maximum en résidence principale selon la commune — un quota impossible à suivre à la main.</p>
+      </div>
+      <div class="problem-stat">
+        <div class="problem-num">+ de 30</div>
+        <p>communes ont instauré un règlement spécifique (enregistrement, changement d'usage). Et la liste s'allonge.</p>
+      </div>
+      <div class="problem-stat">
+        <div class="problem-num">3 h / sem.</div>
+        <p>perdues à suivre les démarches lot par lot, mairie par mairie, plateforme par plateforme.</p>
+      </div>
     </div>
-    <div class="trust-item">
-      <div class="trust-icon">&#9679;</div>
-      Règles communales en temps réel
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">!</div>
-      Alertes personnalisées
-    </div>
-    <div class="trust-item">
-      <div class="trust-icon">&#8709;</div>
-      Aucune carte de crédit requise
-    </div>
-  </div>
+  </section>
 
   <!-- FEATURES -->
   <section class="section features-section" id="fonctionnalites">
     <p class="section-label">Fonctionnalités</p>
-    <h2 class="section-title">L'outil conçu pour les<br>professionnels de la location.</h2>
-    <p class="section-desc">Pas un tableur amélioré. Pas un agenda détourné. Un moteur de règles, commune par commune, couplé à un tableau de bord multi-propriétés.</p>
+    <h2 class="section-title">Tout ce qu'il faut pour<br>rester en règle.</h2>
+    <p class="section-desc">Un moteur de règles commune par commune, couplé à un tableau de bord multi-biens. Pas un tableur amélioré, pas un agenda détourné.</p>
 
     <div class="features-grid" data-stagger>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <div class="feature-title">Moteur de règles par commune</div>
-        <div class="feature-desc">Chaque ville a ses propres délibérations. Paris, Nice, Bordeaux, Marseille, Lyon, Pays Basque — <%= site.name %> connaît les plafonds, les quotas et les obligations de chaque commune.</div>
-        <div class="feature-tag">Commune Engine</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="feature-title">Déclaration en mairie</div>
+        <div class="feature-desc">Suivi des télédéclarations et du changement d'usage, commune par commune — du dépôt au numéro obtenu.</div>
+        <div class="feature-tag">Déclarations</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
-        </div>
-        <div class="feature-title">Suivi journalier des jours</div>
-        <div class="feature-desc">Les plateformes transmettent les données à la DGE chaque trimestre (UE Règl. 2024/1028). <%= site.name %> suit le compteur en temps réel et vous alerte avant le dépassement.</div>
-        <div class="feature-tag">Day Counter</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="feature-title">Numéro d'enregistrement</div>
+        <div class="feature-desc">Centralisé par lot, à afficher sur chaque annonce. Regloo vous signale tout bien sans numéro là où il est exigé.</div>
+        <div class="feature-tag">Enregistrement</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <div class="feature-title">Alertes personnalisées</div>
-        <div class="feature-desc">Plafond en approche, DPE qui expire, nouvelle délibération détectée. Chaque alerte arrive avec l'action concrète à réaliser, pas juste une notification.</div>
-        <div class="feature-tag">Smart Alerts</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+        <div class="feature-title">Compteur 90/120 jours</div>
+        <div class="feature-desc">Suivi du quota par résidence principale, avec le plafond exact de la commune et une alerte avant le dépassement.</div>
+        <div class="feature-tag">Quota</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-        </div>
-        <div class="feature-title">Tableau de bord multi-biens</div>
-        <div class="feature-desc">60 lots ou 200 — même vue. Statut de chaque bien, règles applicables, jours consommés, DPE, tout en un tableau. Plus d'alertes Excel qui traînent.</div>
-        <div class="feature-tag">Portfolio View</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <div class="feature-title">Taxe de séjour</div>
+        <div class="feature-desc">Barèmes par collectivité et suivi des montants dus, réconciliés par plateforme pour préparer vos reversements.</div>
+        <div class="feature-tag">Taxe de séjour</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <div class="feature-title">Déclaration Declaloc</div>
-        <div class="feature-desc">Numéro de déclaration, affichage obligatoire sur les plateformes, délai de renouvellement. Le cycle de vie complet de votre enregistrement, suivi automatiquement.</div>
-        <div class="feature-tag">Declaloc Lifecycle</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <div class="feature-title">Multi-plateformes</div>
+        <div class="feature-desc">Airbnb, Booking, Abritel… un suivi unifié de vos lots, quel que soit le nombre d'annonces par logement.</div>
+        <div class="feature-tag">Multi-plateformes</div>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <div class="feature-title">Veille réglementaire</div>
-        <div class="feature-desc">Une nouvelle délibération passe en conseil municipal ? Le plafond change ? <%= site.name %> détecte le changement et vous alerte sur l'impact pour votre portefeuille.</div>
-        <div class="feature-tag">Regulatory Watch</div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        <div class="feature-title">Alertes &amp; échéances</div>
+        <div class="feature-desc">Chaque seuil réglementaire, chaque renouvellement (DPE, numéro) signalé avant qu'il ne soit trop tard.</div>
+        <div class="feature-tag">Alertes</div>
       </div>
     </div>
   </section>
 
-  <!-- DASHBOARD PREVIEW -->
-  <section class="section dashboard-section" id="dashboard">
-    <p class="section-label">Tableau de bord</p>
-    <h2 class="section-title">Chaque bien. Chaque règle.<br>Une seule vue.</h2>
-    <p class="section-desc">Plus besoin de jongler entre les sites communaux, les fichiers Excel et les rappels manuels. L'état de votre portefeuille, mis à jour en continu.</p>
+  <!-- COMMENT ÇA MARCHE -->
+  <section class="section reg-section" id="etapes">
+    <p class="section-label">Comment ça marche</p>
+    <h2 class="section-title">Opérationnel en<br>trois étapes.</h2>
+    <p class="section-desc">Pas d'installation, pas de tableur. Vous renseignez vos biens, <%= site.name %> applique les règles et vous garde en règle.</p>
 
-    <div class="dashboard-preview" data-stagger>
-      <div class="prop-table">
-        <div class="prop-table-head">
-          <span class="prop-table-title">Portefeuille &mdash; Conciergerie</span>
-          <span class="prop-table-count">6 biens</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Rue de Rivoli, Paris 4e</div>
-            <div class="prop-city">Paris &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-warn">Plafond 90j</span>
-          <span class="prop-badge badge-ok">&#10003; DPE C</span>
-          <span class="prop-days"><strong>74</strong>/90 j</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Boulevard Jean Jaurès, Nice</div>
-            <div class="prop-city">Nice &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-alert">DPE exp.</span>
-          <span class="prop-badge badge-ok">&#10003; DPE F</span>
-          <span class="prop-days"><strong>58</strong>/120 j</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Rue Sainte-Catherine, Bordeaux</div>
-            <div class="prop-city">Bordeaux &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-ok">&#10003; OK</span>
-          <span class="prop-badge badge-ok">&#10003; DPE B</span>
-          <span class="prop-days"><strong>31</strong>/120 j</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Avenue des Présidents, Marseille 6e</div>
-            <div class="prop-city">Marseille &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-ok">&#10003; OK</span>
-          <span class="prop-badge badge-ok">&#10003; DPE D</span>
-          <span class="prop-days"><strong>67</strong>/120 j</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Rue de la République, Lyon 2e</div>
-            <div class="prop-city">Lyon &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-alert">Seuil atteint</span>
-          <span class="prop-badge badge-ok">&#10003; DPE B</span>
-          <span class="prop-days"><strong>87</strong>/90 j</span>
-        </div>
-        <div class="prop-row">
-          <div>
-            <div class="prop-name">Rue des Basques, Biarritz</div>
-            <div class="prop-city">Pays Basque &mdash; Résidence principale</div>
-          </div>
-          <span class="prop-badge badge-ok">&#10003; OK</span>
-          <span class="prop-badge badge-ok">&#10003; DPE A</span>
-          <span class="prop-days"><strong>14</strong>/120 j</span>
-        </div>
-      </div>
-      <div class="commune-stack">
-        <div class="commune-card">
-          <div class="commune-card-head">
-            <div>
-              <div class="commune-nm">Paris</div>
-              <div class="commune-typ">Zone tendue &mdash; changement d'usage</div>
-            </div>
-            <span class="commune-badge" style="background:rgba(156,59,42,0.22);color:#d97a63;">90j</span>
-          </div>
-          <div class="commune-metric"><span class="commune-metric-lbl">Plafond rés. princ.</span><span class="commune-metric-val">90 jours/an</span></div>
-          <div class="commune-metric"><span class="commune-metric-lbl">Copro 2/3</span><span class="commune-metric-val">Requis</span></div>
-          <div class="commune-metric"><span class="commune-metric-lbl">DPE minimum</span><span class="commune-metric-val">D à horizon 2034</span></div>
-          <div class="commune-alert-tag">&#9888; Délibération en cours &mdash; suivi actif</div>
-        </div>
-        <div class="commune-card">
-          <div class="commune-card-head">
-            <div>
-              <div class="commune-nm">Lyon</div>
-              <div class="commune-typ">Zone tendue</div>
-            </div>
-            <span class="commune-badge" style="background:var(--terracotta-soft);color:var(--terracotta);">90j</span>
-          </div>
-          <div class="commune-metric"><span class="commune-metric-lbl">Plafond rés. princ.</span><span class="commune-metric-val">90 jours/an</span></div>
-          <div class="commune-metric"><span class="commune-metric-lbl">Copro 2/3</span><span class="commune-metric-val">Requis</span></div>
-          <div class="commune-metric"><span class="commune-metric-lbl">Quota</span><span class="commune-metric-val">Zone par zone</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ALERTS -->
-  <section class="section alerts-section" id="alertes">
-    <p class="section-label">Alertes intelligentes</p>
-    <h2 class="section-title">Les règles évoluent.<br>Nous vous informons en premier.</h2>
-    <p class="section-desc">Les communes modifient leurs délibérations en permanence. <%= site.name %> surveille chaque modification pertinente et vous alerte avant qu'elle ne devienne un problème.</p>
-
-    <div class="alerts-grid" data-stagger>
-      <div class="alert-card critical">
-        <div class="alert-card-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        </div>
-        <div class="alert-card-title">Lyon &mdash; Plafond réduit à 90j</div>
-        <div class="alert-card-body">La mairie de Lyon a voté l'abaissement du plafond résidence principale de 120 à 90 jours. Votre bien « Rue de la République » est à 87/90 jours. Seuil critique atteint dans 3 jours.</div>
-        <div class="alert-card-action">Réviser l'annonce Airbnb &rarr;</div>
-      </div>
-      <div class="alert-card warning">
-        <div class="alert-card-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <div class="alert-card-title">DPE expirant &mdash; Nice</div>
-        <div class="alert-card-body">Le DPE de « Boulevard Jean Jaurès, Nice » expire dans 47 jours. Les plateformes peuvent demander le document à jour à tout moment.</div>
-        <div class="alert-card-action">Renouveler le DPE &rarr;</div>
-      </div>
-      <div class="alert-card info">
-        <div class="alert-card-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-        </div>
-        <div class="alert-card-title">Délibération Paris &mdash; suivi actif</div>
-        <div class="alert-card-body">Une nouvelle délibération est en cours d'examen au Bureau de la Protection des Locaux d'Habitation (BPLH). Impact potentiel sur les règles de changement d'usage dans le 4e arrondissement.</div>
-        <div class="alert-card-action">Détails et suivi &rarr;</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section" id="temoignages">
-    <p class="section-label">Témoignages</p>
-    <h2 class="section-title">Ils gèrent leurs lots.<br>Nous gérons leur conformité.</h2>
-    <p class="section-desc">Des conciergeries et multi-propriétaires qui ont compris que la conformité n'est pas un coût, c'est une assurance.</p>
-
-    <div class="testimonials-grid" data-stagger>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">Avant <%= site.name %>, je passais 2h par semaine à vérifier manuellement les jours sur chaque plateforme. Maintenant, je reçois une alerte si un seuil est proche. Temps récupéré : considérable.</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">SM</div>
-          <div>
-            <div class="testimonial-name">Sophie M.</div>
-            <div class="testimonial-role">Conciergerie &mdash; 47 lots, Paris et Nice</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">L'alerte Lyon 90j nous a sauvés. On était à 87/90 et on comptait continuer. Le mail de <%= site.name %> nous a arrêtés. Derrière, une simple modification d'annonce et le problème était réglé.</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">TL</div>
-          <div>
-            <div class="testimonial-name">Thomas L.</div>
-            <div class="testimonial-role">Multi-propriétaire &mdash; 82 lots, Auvergne-Rhône-Alpes</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote">Ce qui m'a convaincu ? La veille réglementaire. Une délibération qui passe à Marseille, je suis informé avant même de lire la presse locale. C'est ça, la différence.</div>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">CM</div>
-          <div>
-            <div class="testimonial-name">Claire M.</div>
-            <div class="testimonial-role">Gérance locative &mdash; 120 lots, métropole marseillaise</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REGISTRATION LIFECYCLE -->
-  <section class="section reg-section" id="declarations">
-    <p class="section-label">Cycle de vie</p>
-    <h2 class="section-title">De la première déclaration<br>à la conformité continue.</h2>
-    <p class="section-desc">Le numéro Declaloc n'est que le début. Chaque étape du cycle de vie de l'enregistrement a ses délais, ses obligations et ses risques. Nous les suivons tous.</p>
-
-    <div class="reg-grid" data-stagger>
+    <div class="reg-grid" data-reveal>
       <div class="reg-steps">
         <div class="reg-step">
           <div class="step-num">1</div>
           <div class="step-content">
-            <h4>Déclaration initiale</h4>
-            <p>Auto-remplissez votre dossier Declaloc depuis les données du bien. Validez contre les règles communales avant de soumettre. Suivez l'émission du numéro en temps réel.</p>
+            <h4>Ajoutez vos biens</h4>
+            <p>Renseignez chaque meublé : commune, type, numéro d'enregistrement, jours loués, DPE. <span class="soft">(Bientôt : import automatique depuis vos plateformes.)</span></p>
           </div>
         </div>
         <div class="reg-step">
           <div class="step-num">2</div>
           <div class="step-content">
-            <h4>Conformité des annonces</h4>
-            <p>Le numéro Declaloc doit apparaître sur chaque plateforme. Nous vérifions la présence sur Airbnb, Booking, Abritel et vous alertons si une annonce est en ligne sans lui.</p>
+            <h4><%= site.name %> vérifie tout</h4>
+            <p>Pour chaque lot, le règlement de sa commune est appliqué : plafond de jours, enregistrement, changement d'usage, DPE. Les écarts remontent en alertes.</p>
           </div>
         </div>
         <div class="reg-step">
           <div class="step-num">3</div>
           <div class="step-content">
-            <h4>Suivi des jours</h4>
-            <p>Les plateformes transmettent les données à la DGE chaque trimestre (UE Règl. 2024/1028). Nous comptabilisons vos jours contre le plafond communal et vous prévenons avant le dépassement.</p>
-          </div>
-        </div>
-        <div class="reg-step">
-          <div class="step-num">4</div>
-          <div class="step-content">
-            <h4>Renouvellement et échéances DPE</h4>
-            <p>Le DPE expire. Les règles communales changent. De nouvelles délibérations passent. Nous affichons chaque échéance avant qu'elle ne devienne un défaut de conformité.</p>
+            <h4>Restez en règle, sereinement</h4>
+            <p>Vous traitez les actions prioritaires ; <%= site.name %> affiche votre conformité d'un coup d'œil et vous alerte avant chaque échéance.</p>
           </div>
         </div>
       </div>
       <div class="reg-visual">
-        <div class="reg-visual-label">Cycle de vie d'enregistrement</div>
-        <div class="reg-item reg-item-done">
-          <span>&#10003; Numéro obtenu</span>
-          <span>12 févr. 2026</span>
-        </div>
-        <div class="reg-item reg-item-done">
-          <span>&#10003; Numéro sur Airbnb</span>
-          <span>14 févr. 2026</span>
-        </div>
-        <div class="reg-item reg-item-warn">
-          <span>&#9203; Renouveler DPE</span>
-          <span>Délai&nbsp;: 47 jours</span>
-        </div>
-        <div class="reg-item reg-item-alert">
-          <span>&#9888; Plafond Lyon &mdash; alerte</span>
-          <span>Dépassement imminent</span>
-        </div>
-        <div class="reg-item reg-item-pending">
-          <span>Rapport trimestriel DGE</span>
-          <span>Automne 2026</span>
-        </div>
+        <div class="reg-visual-label">Cycle de vie d'un lot</div>
+        <div class="reg-item reg-item-done"><span>&#10003; Numéro d'enregistrement</span><span>Obtenu</span></div>
+        <div class="reg-item reg-item-done"><span>&#10003; Numéro affiché sur Airbnb</span><span>OK</span></div>
+        <div class="reg-item reg-item-warn"><span>&#9203; Compteur de jours</span><span>78 / 90 j</span></div>
+        <div class="reg-item reg-item-alert"><span>&#9888; Renouvellement DPE</span><span>Dans 47 j</span></div>
+        <div class="reg-item reg-item-pending"><span>Taxe de séjour T3</span><span>À reverser</span></div>
       </div>
     </div>
   </section>
 
-  <!-- COMMUNES COVERAGE -->
+  <!-- COMMUNES -->
   <section class="section communes-section" id="communes">
-    <p class="section-label">Données communales live</p>
-    <h2 class="section-title">Six villes en premier.<br>D'autres chaque trimestre.</h2>
-    <p class="section-desc">Nous commençons là où le marché professionnel est le plus dense : Paris, Nice, Bordeaux, Marseille, Pays Basque, Lyon. Chaque commune dispose d'un moteur de règles live. L'expansion est prévue trimestriellement.</p>
+    <p class="section-label">Couverture communale</p>
+    <h2 class="section-title">Six communes modélisées.<br>D'autres chaque trimestre.</h2>
+    <p class="section-desc">Nous commençons là où le marché professionnel est le plus dense. Chaque commune dispose de ses règles propres : plafond, enregistrement, changement d'usage.</p>
 
     <div class="communes-grid" data-stagger>
-      <div class="commune-chip chip-paris">
-        <div class="commune-chip-name">Paris</div>
-        <div class="commune-chip-rule">90j &mdash; CU requis</div>
-        <div class="commune-chip-status">Live</div>
+      <div class="commune-chip"><div class="commune-chip-name">Paris</div><div class="commune-chip-rule">90 j · enreg. + CU</div><div class="commune-chip-status">Live</div></div>
+      <div class="commune-chip"><div class="commune-chip-name">Lyon</div><div class="commune-chip-rule">90 j · enreg. + CU</div><div class="commune-chip-status">Live</div></div>
+      <div class="commune-chip"><div class="commune-chip-name">Bordeaux</div><div class="commune-chip-rule">120 j · compensation</div><div class="commune-chip-status">Live</div></div>
+      <div class="commune-chip"><div class="commune-chip-name">Nice</div><div class="commune-chip-rule">120 j · enregistrement</div><div class="commune-chip-status">Live</div></div>
+      <div class="commune-chip"><div class="commune-chip-name">Marseille</div><div class="commune-chip-rule">120 j · enregistrement</div><div class="commune-chip-status">Live</div></div>
+      <div class="commune-chip"><div class="commune-chip-name">Pays Basque</div><div class="commune-chip-rule">120 j · compensation</div><div class="commune-chip-status">Live</div></div>
+    </div>
+  </section>
+
+  <!-- PRICING TEASER -->
+  <section class="section price-teaser-section" id="tarifs-apercu">
+    <p class="section-label">Tarifs</p>
+    <h2 class="section-title">Un tarif par portefeuille.<br>Sans surprise.</h2>
+    <p class="section-desc">Tous les plans incluent l'essai gratuit de 14 jours, sans carte bancaire. Sans engagement.</p>
+
+    <div class="price-teaser" data-stagger>
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-lots">1 à 20 lots</div>
+        <div class="price-amount">89 €<span>/mois</span></div>
+        <a href="/tarifs" class="price-cta">Choisir &rarr;</a>
       </div>
-      <div class="commune-chip chip-nice">
-        <div class="commune-chip-name">Nice</div>
-        <div class="commune-chip-rule">120j &mdash; CU partiel</div>
-        <div class="commune-chip-status">Live</div>
+      <div class="price-card featured">
+        <div class="price-name">Professionnel</div>
+        <div class="price-lots">21 à 50 lots</div>
+        <div class="price-amount">149 €<span>/mois</span></div>
+        <a href="/tarifs" class="price-cta">Choisir &rarr;</a>
       </div>
-      <div class="commune-chip chip-bordeaux">
-        <div class="commune-chip-name">Bordeaux</div>
-        <div class="commune-chip-rule">120j &mdash; CU partiel</div>
-        <div class="commune-chip-status">Live</div>
-      </div>
-      <div class="commune-chip chip-marseille">
-        <div class="commune-chip-name">Marseille</div>
-        <div class="commune-chip-rule">120j &mdash; CU partiel</div>
-        <div class="commune-chip-status">Live</div>
-      </div>
-      <div class="commune-chip chip-lyon">
-        <div class="commune-chip-name">Lyon</div>
-        <div class="commune-chip-rule">90j &mdash; Zone tendue</div>
-        <div class="commune-chip-status">Live</div>
-      </div>
-      <div class="commune-chip chip-paysbasque">
-        <div class="commune-chip-name">Pays Basque</div>
-        <div class="commune-chip-rule">120j &mdash; DPE exigé</div>
-        <div class="commune-chip-status">Live</div>
+      <div class="price-card">
+        <div class="price-name">Premium</div>
+        <div class="price-lots">51 à 100 lots</div>
+        <div class="price-amount">249 €<span>/mois</span></div>
+        <a href="/tarifs" class="price-cta">Choisir &rarr;</a>
       </div>
     </div>
+    <p class="price-teaser-foot"><a href="/tarifs">Voir le détail des plans et la FAQ &rarr;</a></p>
   </section>
 
   <!-- CTA -->
   <section class="cta-section" id="contact" data-stagger>
-    <h2 class="cta-title">Protégez votre portefeuille.<br>À partir de&nbsp;<span>&euro;89/mois</span>.</h2>
-    <p class="cta-desc">Pas d'engagement longue durée. Annulez quand vous voulez. Un tableau de bord qui vous évite &euro;20&nbsp;000 d'amende — c'est le calcul qui compte.</p>
-    <a href="/tarifs" class="cta-btn">Voir les tarifs &rarr;</a>
+    <h2 class="cta-title">Mettez tout votre portefeuille<br>en règle <span>dès aujourd'hui</span>.</h2>
+    <p class="cta-desc">Créez votre compte en 2 minutes. Ajoutez vos lots. Voyez votre conformité d'un coup d'œil — avant l'administration.</p>
+    <a href="/inscription" class="cta-btn">Créer un compte gratuit &rarr;</a>
   </section>
 
   <%- include('partials/footer') %>

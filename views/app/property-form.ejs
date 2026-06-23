@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/app-header') %>
+
+  <%
+    var action = mode === 'edit' ? '/app/biens/' + property.id : '/app/biens';
+    var back = mode === 'edit' ? '/app/biens/' + property.id : '/app';
+    var platforms = property.platforms || [];
+    var has = function (p) { return platforms.indexOf(p) !== -1; };
+    var dpeOptions = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+  %>
+
+  <main class="app-main">
+    <a href="<%= back %>" class="app-back">← Retour</a>
+    <div class="app-pagehead">
+      <div><h1><%= mode === 'edit' ? 'Modifier le bien' : 'Ajouter un bien' %></h1></div>
+    </div>
+
+    <% if (error) { %><div class="form-error" style="max-width:720px"><%= error %></div><% } %>
+
+    <form class="form-card" method="post" action="<%= action %>">
+      <div class="form-row">
+        <label class="form-label" for="name">Nom du bien</label>
+        <input class="input" id="name" name="name" required value="<%= property.name || '' %>" placeholder="Ex. Appartement Bellecour">
+      </div>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="commune">Commune</label>
+          <select class="select" id="commune" name="commune">
+            <% communes.forEach(function (c) { %>
+              <option value="<%= c.key %>" <%= property.commune === c.key ? 'selected' : '' %>><%= c.label %></option>
+            <% }); %>
+            <option value="autre" <%= property.commune === 'autre' ? 'selected' : '' %>>Autre commune</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="type">Type de location</label>
+          <select class="select" id="type" name="type">
+            <option value="principale" <%= property.type === 'principale' ? 'selected' : '' %>>Résidence principale</option>
+            <option value="secondaire" <%= property.type === 'secondaire' ? 'selected' : '' %>>Résidence secondaire</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="communeLabel">Nom de la commune <span style="font-weight:400;color:var(--muted)">(si « Autre »)</span></label>
+        <input class="input" id="communeLabel" name="communeLabel" value="<%= property.communeLabel || '' %>" placeholder="Ex. Annecy">
+      </div>
+
+      <div class="form-row">
+        <label class="form-label" for="address">Adresse</label>
+        <input class="input" id="address" name="address" value="<%= property.address || '' %>" placeholder="Numéro, rue, ville">
+      </div>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="registrationNumber">N° d'enregistrement</label>
+          <input class="input" id="registrationNumber" name="registrationNumber" value="<%= property.registrationNumber || '' %>">
+          <div class="form-hint">Laissez vide si pas encore obtenu.</div>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="daysRented">Jours loués cette année</label>
+          <input class="input" id="daysRented" name="daysRented" type="number" min="0" max="366" value="<%= property.daysRented ?? '' %>">
+          <div class="form-hint">Pour une résidence principale.</div>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <div class="form-row">
+          <label class="form-label" for="dpeClass">Classe DPE</label>
+          <select class="select" id="dpeClass" name="dpeClass">
+            <option value="">Non renseigné</option>
+            <% dpeOptions.forEach(function (d) { %>
+              <option value="<%= d %>" <%= property.dpeClass === d ? 'selected' : '' %>><%= d %></option>
+            <% }); %>
+          </select>
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="dpeDate">Date du DPE</label>
+          <input class="input" id="dpeDate" name="dpeDate" type="date" value="<%= property.dpeDate || '' %>">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="form-label">Plateformes</label>
+        <div class="checks-inline">
+          <label class="check-pill"><input type="checkbox" name="platforms" value="airbnb" <%= has('airbnb') ? 'checked' : '' %>> Airbnb</label>
+          <label class="check-pill"><input type="checkbox" name="platforms" value="booking" <%= has('booking') ? 'checked' : '' %>> Booking</label>
+          <label class="check-pill"><input type="checkbox" name="platforms" value="abritel" <%= has('abritel') ? 'checked' : '' %>> Abritel</label>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label class="check-pill"><input type="checkbox" name="changementUsage" <%= property.changementUsage ? 'checked' : '' %>> Autorisation de changement d'usage obtenue (résidence secondaire)</label>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit"><%= mode === 'edit' ? 'Enregistrer les modifications' : 'Ajouter le bien' %></button>
+        <a href="<%= back %>" class="btn btn-outline">Annuler</a>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('../partials/head') %>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <a href="/" class="auth-brand" aria-label="<%= site.name %>">
+        <span class="nav-mark" aria-hidden="true"><svg viewBox="0 0 56 56" fill="none"><path d="M6 45 A22 22 0 0 1 50 45 Z" fill="#211C18"/><path d="M21 45 A7.5 9 0 0 1 35 45 Z" fill="#C3683E"/></svg></span>
+        <span class="auth-brand-name"><%= site.name %></span>
+      </a>
+      <h1>Connexion</h1>
+      <p class="auth-sub">Accédez à votre tableau de bord de conformité.</p>
+
+      <% if (error) { %><div class="form-error"><%= error %></div><% } %>
+
+      <form method="post" action="/connexion" novalidate>
+        <input type="hidden" name="suite" value="<%= suite || '' %>">
+        <div class="form-row">
+          <label class="form-label" for="email">E-mail</label>
+          <input class="input" id="email" name="email" type="email" required value="<%= values.email || '' %>" autocomplete="email">
+        </div>
+        <div class="form-row">
+          <label class="form-label" for="password">Mot de passe</label>
+          <input class="input" id="password" name="password" type="password" required autocomplete="current-password">
+        </div>
+        <button class="btn btn-primary" type="submit">Se connecter</button>
+      </form>
+
+      <p class="auth-foot">Pas encore de compte ? <a href="/inscription">Créer un compte gratuit</a></p>
+    </div>
+  </div>
+</body>
+</html>

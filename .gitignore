@@ -1,6 +1,9 @@
 node_modules/
 npm-debug.log*
 
+# Local data store (user content — never commit)
+data/
+
 # Environment
 .env
 .env.*

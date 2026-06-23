@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<%- include('../partials/head') %>
+<body>
+  <%- include('../partials/app-header', { navActive: 'dashboard' }) %>
+
+  <main class="app-main">
+    <div class="app-pagehead">
+      <div>
+        <h1>Tableau de bord</h1>
+        <p>La conformité de votre portefeuille, en un coup d'œil.</p>
+      </div>
+      <a href="/app/biens/nouveau" class="btn btn-primary">+ Ajouter un bien</a>
+    </div>
+
+    <div class="app-note">
+      <span class="app-note-ico" aria-hidden="true">ⓘ</span>
+      <div>Jours loués, DPE et numéros sont <strong>saisis manuellement</strong> pour l'instant — les synchronisations Airbnb/Booking et téléservices mairies sont sur la feuille de route. Les règles communales sont <strong>indicatives</strong> et ne constituent pas un conseil juridique.</div>
+    </div>
+
+    <% if (evaluations.length === 0) { %>
+      <div class="empty">
+        <div class="empty-mark"><svg viewBox="0 0 56 56" fill="none"><path d="M6 45 A22 22 0 0 1 50 45 Z" fill="#211C18"/><path d="M21 45 A7.5 9 0 0 1 35 45 Z" fill="#C3683E"/></svg></div>
+        <h2>Ajoutez votre premier bien</h2>
+        <p>Renseignez un meublé de tourisme : Regloo applique aussitôt les règles de sa commune — plafond de jours, numéro d'enregistrement, DPE, changement d'usage — et calcule sa conformité.</p>
+        <div class="empty-actions">
+          <a href="/app/biens/nouveau" class="btn btn-primary">+ Ajouter un bien</a>
+          <form method="post" action="/app/biens/exemples"><button class="btn btn-outline" type="submit">Charger des exemples</button></form>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="kpis">
+        <div class="kpi"><div class="kpi-val"><%= summary.total %></div><div class="kpi-label">Biens suivis</div></div>
+        <div class="kpi ok"><div class="kpi-val"><%= summary.ok %></div><div class="kpi-label">Conformes</div></div>
+        <div class="kpi attention"><div class="kpi-val"><%= summary.attention %></div><div class="kpi-label">À surveiller</div></div>
+        <div class="kpi critique"><div class="kpi-val"><%= summary.critique %></div><div class="kpi-label">Action requise</div></div>
+      </div>
+
+      <% if (alerts.length) { %>
+        <div class="app-section-title">Alertes (<%= alerts.length %>)</div>
+        <div class="alert-feed">
+          <% alerts.forEach(function(a) { %>
+            <a class="alert-row <%= a.severity %>" href="/app/biens/<%= a.propertyId %>">
+              <div class="alert-row-body">
+                <div class="alert-row-head">
+                  <span class="alert-row-prop"><%= a.propertyName %></span>
+                  <span class="badge <%= a.severity %>"><%= a.label %></span>
+                </div>
+                <div class="alert-row-msg"><%= a.message %></div>
+                <% if (a.action) { %><div class="alert-row-action">→ <%= a.action %></div><% } %>
+              </div>
+            </a>
+          <% }); %>
+        </div>
+      <% } %>
+
+      <div class="app-section-title">Vos biens (<%= summary.total %>)</div>
+      <div class="prop-list">
+        <% evaluations.forEach(function(e) { %>
+          <a class="prop-item" href="/app/biens/<%= e.property.id %>">
+            <div>
+              <div class="prop-item-name"><%= e.property.name %></div>
+              <div class="prop-item-sub"><%= e.property.communeLabel || e.rules.label %> · <%= e.property.type === 'secondaire' ? 'Résidence secondaire' : 'Résidence principale' %></div>
+            </div>
+            <span class="badge <%= e.status %>"><%= STATUS_LABEL[e.status] %></span>
+            <div class="prop-item-meta">
+              <% if (e.days) { var pct = Math.min(100, Math.round(e.days.ratio * 100)); %>
+                <strong><%= e.days.rented %></strong> / <%= e.days.cap %> jours
+                <div class="daybar <%= e.days.status %>"><span style="width: <%= pct %>%"></span></div>
+              <% } else { %>
+                Pas de plafond de jours
+              <% } %>
+            </div>
+            <span aria-hidden="true" class="prop-item-arrow">→</span>
+          </a>
+        <% }); %>
+      </div>
+    <% } %>
+  </main>
+</body>
+</html>

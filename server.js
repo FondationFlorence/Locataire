@@ -1,37 +1,45 @@
 /**
- * regloo — Express server.
+ * Regloo — Express server.
  *
- * Serves the marketing site: landing page, pricing, post-checkout
- * confirmation, and legal pages. No database: the app is presentational and
- * payments are handled by Stripe Checkout (hosted links in routes/tarifs.js).
- * Add a datastore here when the operator dashboard is built.
+ * Serves both the marketing site (landing, pricing, legal) and the product
+ * core: accounts and the compliance dashboard (see routes/app.js). Data is
+ * persisted by lib/store.js (JSON file under DATA_DIR).
  */
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
+const session = require('express-session');
 const { SITE, pageContext } = require('./lib/site');
+const auth = require('./lib/auth');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// EJS view engine. Templates live in ./views/ (shared chunks in views/partials/).
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.set('trust proxy', 1); // Render terminates TLS at a proxy
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Health check (used by Render). Cheap and dependency-free.
 app.get('/health', (_req, res) => res.json({ status: 'healthy' }));
 
-// Static assets (CSS, JS, favicon, robots, sitemap). `index: false` so `/`
-// always renders the EJS landing page below.
+// Static assets. `index: false` so `/` renders the EJS landing page.
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
+
+// Sessions + current user (after static so assets skip this work).
+app.use(session({
+  secret: process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex'),
+  resave: false,
+  saveUninitialized: false,
+  cookie: { httpOnly: true, sameSite: 'lax', secure: 'auto', maxAge: 1000 * 60 * 60 * 24 * 30 },
+}));
+app.use(auth.attachUser);
 
 // Landing page
 app.get('/', (_req, res) => {
-  res.render('layout', pageContext({
-    canonical: '/',
-    pageCss: 'landing.css',
-  }));
+  res.render('layout', pageContext({ canonical: '/', pageCss: 'landing.css' }));
 });
 
 // Pricing & confirmation
@@ -40,8 +48,10 @@ app.use('/tarifs', tarifsRouter);
 app.get('/confirmation', tarifsRouter.renderConfirmation);
 
 // Legal pages
-const legalRouter = require('./routes/legal');
-app.use('/', legalRouter);
+app.use('/', require('./routes/legal'));
+
+// Product core — accounts + compliance dashboard
+app.use('/', require('./routes/app'));
 
 // 404
 app.use((req, res) => {
