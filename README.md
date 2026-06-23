@@ -71,6 +71,7 @@ public/{brand,logos,favicons}/  kit de marque
 | `PORT` | Port HTTP | `3000` |
 | `SESSION_SECRET` | Secret de session (à fixer en prod) | aléatoire au boot |
 | `DATA_DIR` | Dossier du store JSON | `./data` |
+| `STRIPE_WEBHOOK_SECRET` | Vérifie le webhook Stripe (sinon `/webhooks/stripe` → 503) | — |
 
 La marque (nom, domaine, email) vit dans **`lib/site.js`**. Les liens Stripe
 sont dans `routes/tarifs.js`. Pour ajouter une commune, complétez `COMMUNES`
@@ -82,9 +83,15 @@ dans `lib/communes.js`.
 - Fixer `SESSION_SECRET` et pointer `DATA_DIR` vers un **disque persistant**
   (sinon les données sont éphémères). Pour monter en charge, remplacer
   `lib/store.js` par une base managée (Postgres) derrière la même API.
-- **Stripe → compte non câblé** : payer sur `/tarifs` ne crée pas encore de
-  compte. Le parcours honnête aujourd'hui est l'inscription gratuite. Brancher
-  un webhook Stripe avant de facturer le produit.
+- **Stripe → activation de compte (câblé)** : créez un endpoint webhook Stripe
+  vers `https://<domaine>/webhooks/stripe` (événements `checkout.session.completed`
+  et `customer.subscription.deleted`) puis renseignez `STRIPE_WEBHOOK_SECRET`.
+  Le paiement active alors le compte ayant le même e-mail (ou un abonnement « en
+  attente » réclamé à l'inscription). Sans la variable, l'endpoint renvoie 503 et
+  l'inscription gratuite reste le parcours.
+- **Vraie base de données** : le store JSON sur disque persistant convient au
+  démarrage ; pour monter en charge, migrer `lib/store.js` vers Postgres (à
+  valider sur une vraie instance avant mise en production).
 
 ## Déploiement (Render)
 

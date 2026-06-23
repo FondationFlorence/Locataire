@@ -72,9 +72,18 @@ The brand kit ships under `public/` (`brand/`, `logos/`, `favicons/`).
 - Page-specific CSS goes in its own file (not inline, not in shared.css).
 
 ## Pricing / Stripe
-Three monthly plans: Starter €89, Professionnel €149, Premium €249. Links live
-in `routes/tarifs.js`. Annual billing is offered via contact (no annual Stripe
-links yet) — add them there and re-introduce a billing toggle if needed.
+Three monthly plans: Starter €89, Professionnel €149, Premium €249. Checkout
+links live in `routes/tarifs.js`; when a user is logged in, `tarifs.ejs` appends
+`?prefilled_email=` so the payment email matches the account.
+
+**Webhook → activation** (`routes/webhook.js`, `lib/billing.js`): Stripe posts
+to `POST /webhooks/stripe` (mounted with a raw-body parser before `express.json`).
+The signature is verified with `crypto` (no Stripe SDK) against
+`STRIPE_WEBHOOK_SECRET`. On `checkout.session.completed` the plan is derived from
+the amount (8900/14900/24900 → starter/pro/premium) and the account is activated
+by email; if no account exists yet, a *pending subscription* is stored and
+claimed at signup. `customer.subscription.deleted` marks it canceled. The
+dashboard shows the subscription banner. Annual billing is still via contact.
 
 ## Before going live
 - Fill the `[À COMPLÉTER]` placeholders in `routes/legal.js` (legal name,
@@ -85,7 +94,11 @@ links yet) — add them there and re-introduce a billing toggle if needed.
   for a managed database (Postgres) behind the same API.
 - Sessions use the in-memory store (users are logged out on restart); add a
   persistent session store before heavy use.
-- Stripe → account provisioning is NOT wired yet: paying on `/tarifs` does not
-  create or upgrade an account. The honest funnel today is the free signup
-  (`/inscription`). Wire a Stripe webhook before charging for the product.
+- Stripe → account provisioning IS wired (`routes/webhook.js`). To enable it:
+  create a webhook endpoint in Stripe pointing to `https://<domaine>/webhooks/stripe`
+  for `checkout.session.completed` and `customer.subscription.deleted`, then set
+  `STRIPE_WEBHOOK_SECRET`. Without that env var the endpoint returns 503 and the
+  free signup remains the funnel.
 - Point each Stripe link's success URL to `/confirmation?plan=<key>`.
+- For scale beyond the JSON store, migrate `lib/store.js` to Postgres (validate
+  against a real instance before relying on it).

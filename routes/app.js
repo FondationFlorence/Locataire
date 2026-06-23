@@ -60,6 +60,9 @@ router.post('/inscription', (req, res) => {
   if (store.findUserByEmail(email)) return fail('Un compte existe déjà avec cette adresse.');
 
   const user = store.createUser({ email, name, passwordHash: auth.hashPassword(password) });
+  // Claim a subscription paid before the account existed (matched by email).
+  const pending = store.takePendingSubscription(email);
+  if (pending) store.setUserSubscription(user.id, pending);
   req.session.userId = user.id;
   res.redirect('/app');
 });

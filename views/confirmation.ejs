@@ -27,9 +27,16 @@
         </div>
       </div>
 
+      <p class="confirmation-note">Pour activer votre abonnement, créez votre compte (ou connectez-vous) avec <strong>l'adresse e-mail utilisée lors du paiement</strong>. L'activation est alors automatique.</p>
+
       <div class="confirmation-actions">
-        <a href="/" class="btn-dashboard">Retour à l'accueil &rarr;</a>
-        <a href="/tarifs" class="btn-back">Voir les tarifs</a>
+        <% if (typeof currentUser !== 'undefined' && currentUser) { %>
+          <a href="/app" class="btn-dashboard">Aller à mon tableau de bord &rarr;</a>
+          <a href="/tarifs" class="btn-back">Voir les tarifs</a>
+        <% } else { %>
+          <a href="/inscription" class="btn-dashboard">Créer mon compte &rarr;</a>
+          <a href="/connexion" class="btn-back">J'ai déjà un compte</a>
+        <% } %>
       </div>
     </div>
   </div>

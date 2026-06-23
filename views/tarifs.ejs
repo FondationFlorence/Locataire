@@ -32,7 +32,7 @@
         <li>Tableau de bord multi-biens</li>
         <li>Suivi Declaloc</li>
       </ul>
-      <a href="<%= starterLink %>" class="card-btn card-btn-outline">Choisir Starter</a>
+      <a href="<%= starterLink %><%= (typeof currentUser !== 'undefined' && currentUser) ? ('?prefilled_email=' + encodeURIComponent(currentUser.email)) : '' %>" class="card-btn card-btn-outline">Choisir Starter</a>
     </div>
 
     <!-- PROFESSIONNEL -->
@@ -53,7 +53,7 @@
         <li>Multi-utilisateurs (3 accès)</li>
         <li>Support prioritaire par email</li>
       </ul>
-      <a href="<%= proLink %>" class="card-btn card-btn-primary">Choisir Professionnel</a>
+      <a href="<%= proLink %><%= (typeof currentUser !== 'undefined' && currentUser) ? ('?prefilled_email=' + encodeURIComponent(currentUser.email)) : '' %>" class="card-btn card-btn-primary">Choisir Professionnel</a>
     </div>
 
     <!-- PREMIUM -->
@@ -74,7 +74,7 @@
         <li>Onboarding dédié</li>
         <li>Support prioritaire téléphonique</li>
       </ul>
-      <a href="<%= premiumLink %>" class="card-btn card-btn-outline">Choisir Premium</a>
+      <a href="<%= premiumLink %><%= (typeof currentUser !== 'undefined' && currentUser) ? ('?prefilled_email=' + encodeURIComponent(currentUser.email)) : '' %>" class="card-btn card-btn-outline">Choisir Premium</a>
     </div>
   </div>
 

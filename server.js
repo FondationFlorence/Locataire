@@ -19,6 +19,10 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.set('trust proxy', 1); // Render terminates TLS at a proxy
 
+// Stripe webhook needs the raw body for signature verification — must be
+// registered before the JSON body parser.
+app.post('/webhooks/stripe', express.raw({ type: '*/*' }), require('./routes/webhook'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

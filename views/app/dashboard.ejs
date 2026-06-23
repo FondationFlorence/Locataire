@@ -13,6 +13,22 @@
       <a href="/app/biens/nouveau" class="btn btn-primary">+ Ajouter un bien</a>
     </div>
 
+    <%
+      var sub = (typeof currentUser !== 'undefined' && currentUser) ? currentUser.subscription : null;
+      var planNames = { starter: 'Starter', professionnel: 'Professionnel', premium: 'Premium' };
+    %>
+    <% if (sub && sub.status === 'active') { %>
+      <div class="app-sub active">
+        <span><span class="app-sub-dot"></span> Abonnement <strong><%= planNames[sub.plan] || sub.plan || 'actif' %></strong> · actif</span>
+        <a href="/tarifs">Gérer l'abonnement</a>
+      </div>
+    <% } else { %>
+      <div class="app-sub">
+        <span>Aucun abonnement actif — vous utilisez <%= site.name %> en accès libre (essai).</span>
+        <a href="/tarifs">Choisir un plan &rarr;</a>
+      </div>
+    <% } %>
+
     <div class="app-note">
       <span class="app-note-ico" aria-hidden="true">ⓘ</span>
       <div>Jours loués, DPE et numéros sont <strong>saisis manuellement</strong> pour l'instant — les synchronisations Airbnb/Booking et téléservices mairies sont sur la feuille de route. Les règles communales sont <strong>indicatives</strong> et ne constituent pas un conseil juridique.</div>
